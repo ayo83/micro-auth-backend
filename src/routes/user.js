@@ -9,7 +9,7 @@ router.post('/user/register', async (req, res) => {
     try {
         /** Validate User */
         const validateUser = await User.findOne({ email: req.body.email });
-        if (validateUser) return res.status(404).json({ message: 'User already exist with this  email' });
+        if (validateUser) return res.status(404).json({ error: 'User already exist with this  email' });
 
         const userObject = req.body;
         userObject.dateReg = new Date();
